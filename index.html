@@ -267,9 +267,13 @@
 
   /* ── CASE STUDIES ── */
   #cases { background: var(--navy); }
+
+  .case-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
   .cases-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5px;
     background: var(--divider);
     border: 1px solid var(--divider);
