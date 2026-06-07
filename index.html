@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subbee Ganapathy — Technology Transformation Executive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2e;
+    --navy-mid: #152540;
+    --navy-light: #1e3355;
+    --slate: #2a4063;
+    --gold: #b8975a;
+    --gold-light: #d4af70;
+    --cream: #f5f0e8;
+    --cream-dim: #ede8dc;
+    --muted: #8b9ab0;
+    --text: #e8ecf0;
+    --text-dim: #b0bcc8;
+    --divider: rgba(184,151,90,0.25);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 4rem;
+    height: 64px;
+    background: rgba(13,27,46,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--divider);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 4rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px; height: 1px;
+    background: var(--gold);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.12;
+    color: #fff;
+    margin-bottom: 1.4rem;
+    letter-spacing: -0.01em;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 2.4rem;
+    font-weight: 300;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.8rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.8rem;
+    background: transparent;
+    color: var(--text-dim);
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(139,154,176,0.35);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  /* ── METRICS CARD ── */
+  .metrics-card {
+    background: var(--navy-mid);
+    border: 1px solid var(--divider);
+    padding: 2.2rem;
+  }
+  .metrics-card-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.6rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--divider);
+  }
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+  .metric-item { }
+  .metric-value {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .metric-value span { color: var(--gold-light); }
+  .metric-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    font-weight: 400;
+  }
+  .metric-zero .metric-value { color: var(--gold-light); }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-header { margin-bottom: 3.5rem; }
+  .section-number {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--gold);
+    letter-spacing: 0.14em;
+    margin-bottom: 0.5rem;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .section-rule {
+    width: 48px; height: 2px;
+    background: var(--gold);
+    margin-top: 1rem;
+  }
+
+  /* ── BRAND STATEMENT ── */
+  #brand { background: var(--navy-mid); }
+  .brand-quote {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--cream);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 3rem 0;
+    position: relative;
+  }
+  .brand-quote::before {
+    content: '\201C';
+    font-family: var(--serif);
+    font-size: 6rem;
+    color: var(--gold);
+    opacity: 0.3;
+    position: absolute;
+    top: -1rem; left: -1rem;
+    line-height: 1;
+  }
+  .brand-tags {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
+    margin-top: 2rem;
+  }
+  .tag {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border: 1px solid var(--divider);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+
+  /* ── CASE STUDIES ── */
+  #cases { background: var(--navy); }
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5px;
+    background: var(--divider);
+    border: 1px solid var(--divider);
+  }
+  .case-card {
+    background: var(--navy);
+    padding: 2.2rem;
+    cursor: pointer;
+    transition: background 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .case-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .case-card:hover { background: var(--navy-mid); }
+  .case-card:hover::after { transform: scaleX(1); }
+  .case-company {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.2rem;
+  }
+  .case-role {
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+  }
+  .case-period {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    font-family: var(--mono);
+  }
+  .case-desc {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+  }
+  .case-metrics {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+  }
+  .case-metric-pill {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--gold-light);
+    background: rgba(184,151,90,0.1);
+    border: 1px solid rgba(184,151,90,0.2);
+    padding: 0.2rem 0.6rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── EXPANDED CASE ── */
+  .case-expanded {
+    display: none;
+    background: var(--navy-mid);
+    border: 1px solid var(--divider);
+    padding: 2.5rem;
+    margin-top: 1.5rem;
+  }
+  .case-expanded.open { display: block; }
+  .expanded-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  .expanded-col h4 {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .expanded-col ul { list-style: none; }
+  .expanded-col li {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    padding: 0.3rem 0;
+    padding-left: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    position: relative;
+  }
+  .expanded-col li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+  }
+
+  /* ── COMPETENCIES ── */
+  #competencies { background: var(--navy-mid); }
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--divider);
+    border: 1px solid var(--divider);
+  }
+  .comp-item {
+    background: var(--navy-mid);
+    padding: 1.8rem;
+  }
+  .comp-item-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .comp-list { list-style: none; }
+  .comp-list li {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    padding: 0.25rem 0;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .comp-list li::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── TECH STACK ── */
+  #stack { background: var(--navy); }
+  .stack-table { width: 100%; border-collapse: collapse; }
+  .stack-table tr { border-bottom: 1px solid var(--divider); }
+  .stack-table tr:last-child { border-bottom: none; }
+  .stack-domain {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    padding: 1rem 1.5rem 1rem 0;
+    width: 180px;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+  .stack-items {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    padding: 1rem 0;
+    line-height: 1.7;
+  }
+
+  /* ── PHILOSOPHY ── */
+  #philosophy { background: var(--navy-mid); }
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  .principle-card {
+    border-left: 2px solid var(--gold);
+    padding: 1.4rem 1.4rem 1.4rem 1.6rem;
+    background: rgba(255,255,255,0.02);
+  }
+  .principle-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  .principle-body {
+    font-size: 0.83rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .contact-headline {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .contact-sub {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  .contact-detail {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .contact-item-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    width: 80px;
+    flex-shrink: 0;
+  }
+  .contact-item-value {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+  }
+  .contact-item-value a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-item-value a:hover { color: var(--gold-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 1.8rem 4rem;
+    border-top: 1px solid var(--divider);
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--navy-mid);
+  }
+  .footer-name {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .footer-note {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── DECORATIVE ── */
+  .hero-bg-lines {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 45%;
+    opacity: 0.04;
+    background-image: repeating-linear-gradient(
+      0deg,
+      rgba(184,151,90,1) 0px,
+      rgba(184,151,90,1) 1px,
+      transparent 1px,
+      transparent 48px
+    );
+    pointer-events: none;
+  }
+
+  /* ── ANIMATE ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    #hero { padding: 7rem 1.5rem 4rem; }
+    .hero-grid { grid-template-columns: 1fr; }
+    section { padding: 4rem 1.5rem; }
+    .comp-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
+    .expanded-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#hero">Subbee Ganapathy</a>
+  <ul class="nav-links">
+    <li><a href="#brand">Overview</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#competencies">Competencies</a></li>
+    <li><a href="#stack">Tech Stack</a></li>
+    <li><a href="#contact">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg-lines" aria-hidden="true"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Technology Transformation Executive</div>
+      <h1>Cloud &amp; Data Platform<br>Leadership at <em>Enterprise Scale</em></h1>
+      <p class="hero-sub">
+        20+ years directing large-scale modernization programs for Fiserv, Bank of America, Morgan Stanley, and Bayer Crop Science — delivering measurable outcomes in regulated, mission-critical environments with zero audit findings.
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#cases">View Case Studies</a>
+        <a class="btn-outline" href="#contact">Connect</a>
+      </div>
+    </div>
+    <div class="metrics-card fade-in">
+      <div class="metrics-card-label">Signature Metrics</div>
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="metric-value">20<span>+</span></div>
+          <div class="metric-label">Years Experience</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">200<span>+</span></div>
+          <div class="metric-label">Workloads Transformed</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">$12<span>M+</span></div>
+          <div class="metric-label">Programs Managed</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">50<span>–70</span></div>
+          <div class="metric-label">People Led</div>
+        </div>
+        <div class="metric-item metric-zero" style="grid-column: span 2;">
+          <div class="metric-value">Zero</div>
+          <div class="metric-label">Audit Findings — Across Every Regulated Engagement</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BRAND STATEMENT ── -->
+<section id="brand">
+  <div class="section-inner">
+    <div class="brand-quote fade-in">
+      Technology Executive specializing in Cloud Transformation, Enterprise Architecture, Data Platform Engineering, and Digital Innovation. Proven success leading large-scale programs across financial services, agri-technology, and enterprise SaaS — with zero audit findings across every regulated engagement.
+    </div>
+    <div class="brand-tags fade-in">
+      <span class="tag">Azure · GCP · AWS</span>
+      <span class="tag">Databricks · Snowflake</span>
+      <span class="tag">Kubernetes · Terraform</span>
+      <span class="tag">BFSI Regulated</span>
+      <span class="tag">FinOps</span>
+      <span class="tag">DevSecOps</span>
+      <span class="tag">SOC-2 · HIPAA · GDPR</span>
+      <span class="tag">Azure Solutions Architect</span>
+      <span class="tag">PMP · TOGAF</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CASE STUDIES ── -->
+<section id="cases">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-number">// 01</div>
+      <h2>Transformation Case Studies</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="cases-grid">
+
+      <div class="case-card" onclick="toggleCase('fiserv')">
+        <div class="case-company">Fiserv</div>
+        <div class="case-role">Director — Enterprise Platform Architecture</div>
+        <div class="case-period">Oct 2023 – Present</div>
+        <p class="case-desc">Led end-to-end modernization of 200+ mission-critical workloads in a regulated BFSI environment processing 25–30M daily transactions — achieving zero audit findings and 20% cloud cost reduction.</p>
+        <div class="case-metrics">
+          <span class="case-metric-pill">200+ Workloads</span>
+          <span class="case-metric-pill">Zero Audit Findings</span>
+          <span class="case-metric-pill">20% Cost Reduction</span>
+          <span class="case-metric-pill">35% Performance Gain</span>
+        </div>
+      </div>
+
+      <div class="case-card" onclick="toggleCase('bayer')">
+        <div class="case-company">Bayer Crop Science</div>
+        <div class="case-role">Director — Cloud &amp; Analytics Modernization</div>
+        <div class="case-period">Jan 2022 – Oct 2023</div>
+        <p class="case-desc">Directed $9M enterprise transformation on Azure and GCP across 4 countries — establishing medallion data architecture processing 500M+ data points and improving predictive accuracy by 60%.</p>
+        <div class="case-metrics">
+          <span class="case-metric-pill">$9M Program</span>
+          <span class="case-metric-pill">60% Accuracy Gain</span>
+          <span class="case-metric-pill">500M+ Data Points</span>
+          <span class="case-metric-pill">40% Faster Processing</span>
+        </div>
+      </div>
+
+      <div class="case-card" onclick="toggleCase('cloudmatiq')">
+        <div class="case-company">Cloudmatiq</div>
+        <div class="case-role">Senior Director — Product &amp; Platform</div>
+        <div class="case-period">Aug 2018 – Dec 2021</div>
+        <p class="case-desc">Built a cloud-native, multi-cloud SaaS platform from scratch — owning architecture, product roadmap, and pre-sales. Won first enterprise client with a $200K deal.</p>
+        <div class="case-metrics">
+          <span class="case-metric-pill">$200K First Deal</span>
+          <span class="case-metric-pill">60% Provisioning Speed</span>
+          <span class="case-metric-pill">3 Clouds Architected</span>
+          <span class="case-metric-pill">ISO 27001 · GDPR</span>
+        </div>
+      </div>
+
+      <div class="case-card" onclick="toggleCase('boa')">
+        <div class="case-company">Bank of America</div>
+        <div class="case-role">Vice President — Risk Analytics &amp; Cloud Architecture</div>
+        <div class="case-period">Oct 2013 – Jun 2018</div>
+        <p class="case-desc">Established enterprise cloud governance frameworks and delivered the risk analytics platform for one of the world's most regulated financial institutions in the post-crisis era.</p>
+        <div class="case-metrics">
+          <span class="case-metric-pill">VP BFSI Pedigree</span>
+          <span class="case-metric-pill">Cloud Governance</span>
+          <span class="case-metric-pill">Regulatory Compliance</span>
+        </div>
+      </div>
+
+      <div class="case-card" onclick="toggleCase('capgemini')">
+        <div class="case-company">Capgemini / Morgan Stanley</div>
+        <div class="case-role">Solutions Architect — BFSI Division</div>
+        <div class="case-period">Apr 2008 – Oct 2013</div>
+        <p class="case-desc">Primary solutions architect for Morgan Stanley's capital markets platform via Capgemini's BFSI consulting division — leading 50+ global developers and architects across New York and offshore delivery centers.</p>
+        <div class="case-metrics">
+          <span class="case-metric-pill">50+ Team Led</span>
+          <span class="case-metric-pill">Capital Markets</span>
+          <span class="case-metric-pill">BNY Mellon</span>
+          <span class="case-metric-pill">Consulting Pedigree</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Expanded panels -->
+    <div id="exp-fiserv" class="case-expanded">
+      <strong style="font-family:var(--serif);color:#fff;font-size:1.1rem;">Fiserv — Enterprise Cloud Modernization</strong>
+      <div class="expanded-grid">
+        <div class="expanded-col">
+          <h4>Transformation Approach</h4>
+          <ul>
+            <li>Microservices decomposition &amp; containerized deployment on AKS/GKE</li>
+            <li>CI/CD pipelines with Helm, GitLab, Azure DevOps, policy-as-code</li>
+            <li>Unified cloud governance framework across 200+ workloads</li>
+            <li>FinOps chargeback governance — $2–3M portfolio discipline</li>
+            <li>CIO-aligned modernization roadmap</li>
+          </ul>
+        </div>
+        <div class="expanded-col">
+          <h4>Business Outcomes</h4>
+          <ul>
+            <li>Zero audit findings — SOC-2 / HIPAA regulated environment</li>
+            <li>20% cloud cost reduction via Terraform IaC and right-sizing</li>
+            <li>35% performance improvement across workload portfolio</li>
+            <li>60% operational automation</li>
+            <li>100% SLA adherence across 25–30M daily transactions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="exp-bayer" class="case-expanded">
+      <strong style="font-family:var(--serif);color:#fff;font-size:1.1rem;">Bayer Crop Science — $9M Data &amp; Analytics Transformation</strong>
+      <div class="expanded-grid">
+        <div class="expanded-col">
+          <h4>Platform Architecture</h4>
+          <ul>
+            <li>Bronze/Silver/Gold medallion architecture on Azure</li>
+            <li>Databricks compute + Snowflake warehouse + DBT pipelines</li>
+            <li>Oracle ERP migration via Azure Data Factory</li>
+            <li>Feature stores &amp; ML pipeline infrastructure</li>
+            <li>Power BI enterprise BI rollout across business units</li>
+          </ul>
+        </div>
+        <div class="expanded-col">
+          <h4>Business Outcomes</h4>
+          <ul>
+            <li>60% improvement in predictive accuracy for yield &amp; pricing models</li>
+            <li>40% reduction in data processing time</li>
+            <li>GDPR compliance across US, EU, and Brazil</li>
+            <li>500M+ data points under governed architecture</li>
+            <li>$3M direct budget managed within $9M enterprise portfolio</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="exp-cloudmatiq" class="case-expanded">
+      <strong style="font-family:var(--serif);color:#fff;font-size:1.1rem;">Cloudmatiq — Multi-Cloud SaaS Platform Build</strong>
+      <div class="expanded-grid">
+        <div class="expanded-col">
+          <h4>Platform Built</h4>
+          <ul>
+            <li>Event-driven, API-first architecture across AWS, Azure, GCP</li>
+            <li>Kafka-based event streaming + Kubernetes orchestration</li>
+            <li>IoT analytics platform with Azure IoT Hub + Power BI</li>
+            <li>ISO 27001, GDPR, NIST compliance framework</li>
+            <li>Co-owned product roadmap with CEO and CTO</li>
+          </ul>
+        </div>
+        <div class="expanded-col">
+          <h4>Commercial Impact</h4>
+          <ul>
+            <li>Won first enterprise client — $200K deal value</li>
+            <li>60% provisioning acceleration</li>
+            <li>40% operational overhead reduction</li>
+            <li>20% cost optimization via Terraform automation</li>
+            <li>10 direct + 25–30 cross-functional contributors led</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="exp-boa" class="case-expanded">
+      <strong style="font-family:var(--serif);color:#fff;font-size:1.1rem;">Bank of America — VP Cloud Architecture &amp; Risk Analytics</strong>
+      <div class="expanded-grid">
+        <div class="expanded-col">
+          <h4>Leadership Scope</h4>
+          <ul>
+            <li>Enterprise cloud architecture and risk analytics platform delivery</li>
+            <li>Cloud governance frameworks aligned to OCC, Fed, SEC requirements</li>
+            <li>Application architecture standards across development workstreams</li>
+            <li>Direct reports + matrixed contributors across dev, QA, PM</li>
+          </ul>
+        </div>
+        <div class="expanded-col">
+          <h4>Significance</h4>
+          <ul>
+            <li>4 years as VP at one of the world's most regulated banks</li>
+            <li>Built cloud governance from zero in post-crisis regulatory environment</li>
+            <li>Foundational BFSI credential underpinning all subsequent programs</li>
+            <li>Established architecture standards adopted enterprise-wide</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="exp-capgemini" class="case-expanded">
+      <strong style="font-family:var(--serif);color:#fff;font-size:1.1rem;">Capgemini / Morgan Stanley — BFSI Consulting</strong>
+      <div class="expanded-grid">
+        <div class="expanded-col">
+          <h4>Morgan Stanley</h4>
+          <ul>
+            <li>Primary solutions architect — capital markets application platform</li>
+            <li>50+ global developers and architects led (NYC + offshore)</li>
+            <li>Architecture governance: design reviews, standards, component libraries</li>
+            <li>Executive reporting cadence for Morgan Stanley client leadership</li>
+          </ul>
+        </div>
+        <div class="expanded-col">
+          <h4>BNY Mellon</h4>
+          <ul>
+            <li>Asset management application for General Motors pension assets</li>
+            <li>Eagle STAR/PACE platform architecture and delivery</li>
+            <li>Design review workshops across multiple international stakeholders</li>
+            <li>End-to-end project leadership and communication planning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPETENCIES ── -->
+<section id="competencies">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-number">// 02</div>
+      <h2>Core Competencies</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="comp-grid fade-in">
+      <div class="comp-item">
+        <div class="comp-item-title">Strategic Leadership</div>
+        <ul class="comp-list">
+          <li>Cloud Transformation Strategy</li>
+          <li>Enterprise Architecture &amp; Governance</li>
+          <li>Digital Platform Strategy</li>
+          <li>Technology Roadmap Development</li>
+          <li>C-Suite &amp; CIO Advisory</li>
+          <li>Organizational Change Management</li>
+        </ul>
+      </div>
+      <div class="comp-item">
+        <div class="comp-item-title">Technology &amp; Platform</div>
+        <ul class="comp-list">
+          <li>Azure / GCP / AWS Multi-Cloud</li>
+          <li>Data Platform Engineering</li>
+          <li>Kubernetes &amp; Container Orchestration</li>
+          <li>Infrastructure-as-Code (Terraform)</li>
+          <li>CI/CD &amp; DevSecOps</li>
+          <li>AI/ML Platform Strategy</li>
+        </ul>
+      </div>
+      <div class="comp-item">
+        <div class="comp-item-title">Operational &amp; Business</div>
+        <ul class="comp-list">
+          <li>FinOps &amp; $12M+ Portfolio Governance</li>
+          <li>SOC-2 / HIPAA / GDPR / NIST</li>
+          <li>Cross-Regional Delivery (4 continents)</li>
+          <li>Team Building &amp; Talent Development</li>
+          <li>SLA Governance &amp; Zero Audit Findings</li>
+          <li>Pre-Sales &amp; Client Advisory</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TECH STACK ── -->
+<section id="stack">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-number">// 03</div>
+      <h2>Technology Platform</h2>
+      <div class="section-rule"></div>
+    </div>
+    <table class="stack-table fade-in">
+      <tr>
+        <td class="stack-domain">Cloud</td>
+        <td class="stack-items">Azure (Primary · Certified) &nbsp;·&nbsp; GCP (Secondary) &nbsp;·&nbsp; AWS (Tertiary — EKS, EC2, S3, Lambda)</td>
+      </tr>
+      <tr>
+        <td class="stack-domain">Data &amp; Analytics</td>
+        <td class="stack-items">Databricks &nbsp;·&nbsp; Snowflake &nbsp;·&nbsp; Delta Lake &nbsp;·&nbsp; Apache Iceberg &nbsp;·&nbsp; Spark &nbsp;·&nbsp; DBT &nbsp;·&nbsp; ADLS Gen2 &nbsp;·&nbsp; Azure Data Factory</td>
+      </tr>
+      <tr>
+        <td class="stack-domain">Infrastructure</td>
+        <td class="stack-items">Terraform &nbsp;·&nbsp; Kubernetes (AKS / GKE / EKS) &nbsp;·&nbsp; Helm &nbsp;·&nbsp; ArgoCD &nbsp;·&nbsp; Docker &nbsp;·&nbsp; Istio &nbsp;·&nbsp; Ansible</td>
+      </tr>
+      <tr>
+        <td class="stack-domain">DevOps / CI-CD</td>
+        <td class="stack-items">GitLab CI/CD &nbsp;·&nbsp; Azure DevOps &nbsp;·&nbsp; Cloud Build &nbsp;·&nbsp; DevSecOps &nbsp;·&nbsp; Policy-as-Code &nbsp;·&nbsp; SRE</td>
+      </tr>
+      <tr>
+        <td class="stack-domain">AI / ML</td>
+        <td class="stack-items">Vertex AI &nbsp;·&nbsp; PySpark &nbsp;·&nbsp; PyTorch &nbsp;·&nbsp; OpenAI &nbsp;·&nbsp; Feature Engineering &nbsp;·&nbsp; ML Pipeline Infrastructure &nbsp;·&nbsp; Agentic AI</td>
+      </tr>
+      <tr>
+        <td class="stack-domain">Governance</td>
+        <td class="stack-items">SOC-2 &nbsp;·&nbsp; HIPAA &nbsp;·&nbsp; GDPR &nbsp;·&nbsp; NIST &nbsp;·&nbsp; TOGAF &nbsp;·&nbsp; FinOps &nbsp;·&nbsp; IAM / RBAC &nbsp;·&nbsp; Zero Trust</td>
+      </tr>
+      <tr>
+        <td class="stack-domain">Languages</td>
+        <td class="stack-items">Python &nbsp;·&nbsp; SQL &nbsp;·&nbsp; Java &nbsp;·&nbsp; Bash &nbsp;·&nbsp; REST APIs</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ── PHILOSOPHY ── -->
+<section id="philosophy">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-number">// 04</div>
+      <h2>Leadership Philosophy</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="principles-grid fade-in">
+      <div class="principle-card">
+        <div class="principle-title">Governance as Advantage</div>
+        <p class="principle-body">Zero audit findings is not a compliance outcome — it is an architectural decision made at program inception. Governance engineered into design from day one eliminates the reactive scramble that produces findings.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-title">Outcomes Before Architecture</div>
+        <p class="principle-body">Architecture serves strategy, not the reverse. Every platform decision must trace back to a measurable business outcome. Technology for its own sake is a cost center.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-title">FinOps Discipline</div>
+        <p class="principle-body">Cloud cost overruns are a leadership accountability problem. The organizations that govern cloud spend effectively are those where the platform leader owns P&amp;L responsibility and is accountable to the CFO.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-title">People-First Leadership</div>
+        <p class="principle-body">The best platforms are built by the best teams. Structural clarity, technical credibility, and visible career pathways are the three levers that retain high-performers in platform engineering organizations.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-title">Security by Design</div>
+        <p class="principle-body">Compliance is embedded, never bolted on. DevSecOps controls, policy-as-code, and automated compliance gates are architectural primitives — not audit-season additions.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-title">Executive Translation</div>
+        <p class="principle-body">Enterprise transformations fail at the organizational layer, not the technical layer. The platform leader's primary job is translating architecture decisions into business language that builds CIO, CFO, and board-level consensus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="fade-in">
+        <div class="section-number">// 05</div>
+        <div class="contact-headline">Let's Connect</div>
+        <p class="contact-sub">
+          Open to Director, VP, and Head of Technology leadership roles in Philadelphia PA, Jersey City NJ, New York Metro, and Remote. Relocating to Newtown, Pennsylvania — Summer 2026.
+        </p>
+        <div style="margin-top:1.5rem;">
+          <a class="btn-primary" href="mailto:subbee@gmail.com">Send an Email</a>
+        </div>
+      </div>
+      <div class="contact-detail fade-in">
+        <div class="contact-item">
+          <span class="contact-item-label">Email</span>
+          <span class="contact-item-value"><a href="mailto:subbee@gmail.com">subbee@gmail.com</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">Phone</span>
+          <span class="contact-item-value">(832) 867-2396</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">LinkedIn</span>
+          <span class="contact-item-value"><a href="https://linkedin.com/in/subbee" target="_blank">linkedin.com/in/subbee</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">Location</span>
+          <span class="contact-item-value">Newtown, Pennsylvania (relocating Summer 2026)</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">Markets</span>
+          <span class="contact-item-value">Philadelphia · Jersey City · New York · Remote</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">Status</span>
+          <span class="contact-item-value" style="color:var(--gold-light);">US Citizen · No sponsorship required</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Subbee Ganapathy — Technology Transformation Executive</span>
+  <span class="footer-note">Azure Solutions Architect · PMP · TOGAF</span>
+</footer>
+
+<script>
+function toggleCase(id) {
+  const panel = document.getElementById('exp-' + id);
+  const isOpen = panel.classList.contains('open');
+  document.querySelectorAll('.case-expanded').forEach(el => el.classList.remove('open'));
+  if (!isOpen) {
+    panel.classList.add('open');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
